@@ -3,7 +3,6 @@ from pymodbus.client import ModbusTcpClient
 # Modbus TCP server configuration
 server_ip = '192.168.4.12'  # Replace with your server's IP address
 server_port = 502          # Default Modbus TCP port
-esclavo=255
 # Create a Modbus TCP client
 client = ModbusTcpClient(server_ip, server_port)
 
@@ -15,7 +14,7 @@ def entradas():
         print("Modbus device is reachable.")
         try:
             for i in direcentradas:
-                response=client.read_holding_registers(i,1,esclavo)
+                response=client.read_holding_registers(i,1)
                 entrada = format(response.registers[0])
                 lista.append(entrada)
             print(lista)  
